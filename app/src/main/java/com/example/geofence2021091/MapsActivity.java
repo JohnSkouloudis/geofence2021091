@@ -87,9 +87,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     // Process the location update
                     lastKnownLocation = location;
                     changeDisplayedLocation();
-//                    onLocationChange();
+
                 } else{
-//                    int a = 4;
+
                 }
             }
         };
@@ -97,8 +97,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         findViewById(R.id.buttonCancel).setOnClickListener(view -> {
-//            SessionManager.stopSession(this);
-            finish(); // Finish the current activity and go back to the previous one
+
+            finish(); // end this activity and go back to the previous one
         });
 
 
@@ -129,8 +129,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         });
 
-        // GPSBroadcastReceiver globalReceiver = new GPSBroadcastReceiver();
-        // prokalei memory leaks etsi opos mas to deiksate
+        
         this.globalReceiver = new GPSBroadcastReceiver();
         IntentFilter filter2 = new IntentFilter();
         filter2.addAction(LocationManager.PROVIDERS_CHANGED_ACTION);
@@ -202,7 +201,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void changeDisplayedLocation(){
         if (lastKnownLocation != null) {
-            // Add a marker in Sydney and move the camera
             LatLng currentPosition = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
             if (currentMarker != null) {
                 currentMarker.remove();
