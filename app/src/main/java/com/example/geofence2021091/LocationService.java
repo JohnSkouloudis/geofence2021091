@@ -32,11 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocationService extends Service implements LocationListener {
-//
-//    public interface LocationCallback {
-//        void newLocation(Location location);
-//    }
-
 
     private LocationManager locationManager;
 
@@ -96,7 +91,6 @@ public class LocationService extends Service implements LocationListener {
                     getCircleCenters();
                 }
             }
-            // Add more actions if needed
         } else {
             if (locationManager == null) {
                 locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -198,8 +192,6 @@ public class LocationService extends Service implements LocationListener {
         if (cursor != null && cursor.moveToFirst()) {
             centerList.clear();
             do {
-//                Integer sessionId = cursor.getInt(0);
-//                String type = cursor.getString(1);
                 Double longitude = cursor.getDouble(2);
                 Double latitude = cursor.getDouble(3);
 //                Log.d("Custom Message", "SessionId: " + sessionId + "\n" + "Type: " + type + "\n" + "Longitude: " + longitude + "\n" + "Latitude: " + latitude);
@@ -222,9 +214,6 @@ public class LocationService extends Service implements LocationListener {
             return false;
         }
 
-//        float[] distance = new float[1];
-//        Location.distanceBetween(point.latitude, point.longitude,
-//                circleCenter.latitude, circleCenter.longitude, distance);
         double distance = haversineDistanceBetween(point.latitude, point.longitude,
                 circleCenter.latitude, circleCenter.longitude);
         return distance < circleRadius;
@@ -263,14 +252,6 @@ public class LocationService extends Service implements LocationListener {
 
             // Insert data using the ContentResolver
             Uri insertedUri = resolver.insert(uri, values);
-
-//            if (insertedUri != null) {
-//                // Data inserted successfully
-//                Log.d("ContentProvider", "Data inserted successfully at " + insertedUri.toString());
-//            } else {
-//                // Insert failed, handle the error
-//                Log.e("ContentProvider", "Failed to insert data");
-//            }
         }
 
 
