@@ -48,12 +48,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-//    public Cursor getPoints(){
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.query(DbHelper.POINTS_TABLE,null,null,
-//                null, null, null, null);
-//        return cursor;
-//    }
+
 
 
 
