@@ -33,7 +33,7 @@ public class DbProvider extends ContentProvider {
         if (dbHelper == null) {
             dbHelper = new DbHelper(getContext());
         }
-        // exoume memory leaks an den sigourepsoume oti mono ena dbhelper einai anoikto kathe fora (mas to deiksate lathos)
+        // memory leak
 
         return false;
     }
@@ -41,7 +41,7 @@ public class DbProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
-//        DbHelper dbHelper = new DbHelper(getContext());
+
         Cursor cursor = null;
         String sId = uri.getLastPathSegment();
         int sessionId = Integer.parseInt(sId);
@@ -65,7 +65,7 @@ public class DbProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-//        DbHelper dbHelper = new DbHelper(getContext());
+
         switch(uriMatcher.match(uri)) {
             case 3:
                 Integer sessionId = contentValues.getAsInteger(FIELD_1);
