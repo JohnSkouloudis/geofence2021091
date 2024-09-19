@@ -29,12 +29,10 @@ public class SessionManager {
     }
 
     public static void stopSession() {
-        // Perform any cleanup or finalization tasks related to stopping the session
 
         // Set the sessionExpired flag to true to indicate that the session has been stopped
         sessionExpired = true;
 
-        // Optionally, perform any other actions when stopping a session
     }
 
     public static boolean isSessionExpired() {
@@ -42,5 +40,5 @@ public class SessionManager {
     }
 
 
-    // You can add more methods related to session management if needed
+
 }
