@@ -118,9 +118,7 @@ public class ResultsMapsActivity extends FragmentActivity implements OnMapReadyC
             }
         };
         LocalBroadcastManager.getInstance(this).registerReceiver(localreceiver, filter);
-
-//        GPSBroadcastReceiver globalReceiver = new GPSBroadcastReceiver();
-        // prokalei memory leaks etsi opos mas to deiksate
+        
         this.globalReceiver = new GPSBroadcastReceiver();
         IntentFilter filter2 = new IntentFilter();
         filter2.addAction(LocationManager.PROVIDERS_CHANGED_ACTION);
@@ -140,7 +138,6 @@ public class ResultsMapsActivity extends FragmentActivity implements OnMapReadyC
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-//        getPointsAndDrawOnMap(mMap);
 
 
 
@@ -209,11 +206,9 @@ public class ResultsMapsActivity extends FragmentActivity implements OnMapReadyC
             LatLng closestLatLng = null;
             double minDistance = Double.MAX_VALUE;
             do {
-//                Integer sessionId = cursor.getInt(0);
                 String type = cursor.getString(1);
                 Double longitude = cursor.getDouble(2);
                 Double latitude = cursor.getDouble(3);
-//                Log.d("Custom Message", "SessionId: " + sessionId + "\n" + "Type: " + type + "\n" + "Longitude: " + longitude + "\n" + "Latitude: " + latitude);
 
                 LatLng latLng = new LatLng(latitude, longitude);
                 LatLng myLatLng = null;
@@ -226,7 +221,6 @@ public class ResultsMapsActivity extends FragmentActivity implements OnMapReadyC
                     double distance = 0;
 
                     if (lastKnownLocation != null) {
-//                    my position -> if (lastKnownLocation.getLatitude() && lastKnownLocation.getLongitude())
 
                         distance = haversineDistanceBetween(myLatLng.latitude, myLatLng.longitude,
                                 latLng.latitude, latLng.longitude);
@@ -253,7 +247,6 @@ public class ResultsMapsActivity extends FragmentActivity implements OnMapReadyC
                 circleOptions.strokeColor(Color.BLUE);
                 circleOptions.visible(true);
                 mMap.addCircle(circleOptions);
-                // Do something with closestLatLng
             }
             cursor.close();
         }
